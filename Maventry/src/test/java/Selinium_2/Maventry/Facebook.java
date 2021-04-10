@@ -26,26 +26,24 @@ public class Facebook {
 		WebDriver driver = new ChromeDriver ();// open browser
 		System.getProperty("line.separator");
 		 driver.get("https://www.facebook.com"); // open url
-
+		 Actions Builder = new Actions (driver);
 	driver.manage().window().maximize();
-	 WebElement swati = driver.findElement(By.xpath("//input[@name='email']"));
-	 swati.sendKeys("madhujami91");
-	 swati.clear();
+	 WebElement username = driver.findElement(By.xpath("//input[@name='email']"));
+	 username.sendKeys("madhujami91");
+	 username.clear();
 	 System.out.print("Field is Clear");
 	 Thread.sleep(5000);
-	 WebElement swatipass = driver.findElement(By.xpath("//*[contains(@type,'password')]"));
-	 swatipass.sendKeys("madhujami91");
-	 swatipass.clear();
+	 WebElement password = driver.findElement(By.xpath("//*[contains(@type,'password')]"));
+	 password.sendKeys("madhujami91");
+	 password.clear();
 	 System.out.print("\nField is Clear ");
 	 driver.findElement(By.xpath("//a[@class='_42ft _4jy0 _6lti _4jy6 _4jy2 selected _51sy']")).click();
-	 Actions Builder = new Actions (driver);
-	 
 	// driver.navigate().refresh();
-	driver.findElement(By.xpath("//*[@id='u_2_9_n/']")).click();
+	driver.findElement(By.xpath("//*[@class='_8idr img']")).click();
 	System.out.print("\nReturned to Main page. \n");
 	// Thread.sleep(10000);
-	WebElement Madhu = driver.findElement(By.xpath("//a[text()='Forgotten password?']"));
-       Builder.doubleClick(Madhu).perform();
+	WebElement fpassword = driver.findElement(By.xpath("//a[text()='Forgotten password?']"));
+       Builder.doubleClick(fpassword).perform();
 	//Madhu.click();
 	 String Madhu1 = driver.getTitle();
 	System.out.println(Madhu1);
