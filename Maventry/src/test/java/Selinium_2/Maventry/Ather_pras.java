@@ -24,9 +24,18 @@ public class Ather_pras {
 	public static void main(String[] args) throws InterruptedException {
 		WebDriverManager.chromedriver().setup();
 		WebDriver driver = new ChromeDriver();
-		String baseUrl = "https://app.atherenergy.com/product/450x/preorder";
+		String baseUrl = "https://atherenergy.com/";
 		driver.get(baseUrl);
+		//String baseUrl1 = "https://app.atherenergy.com/product/450x/preorder";
+		//driver.get(baseUrl1);
 		driver.manage().window().maximize();
+		driver.findElement(By.cssSelector("li[data-img='/images/450x-new/scooter-scroll/mint.png']")).click();
+	     Thread.sleep(10000);
+		System.out.print("green selected");
+		
+	     String baseUrl1 = "https://app.atherenergy.com/product/450x/preorder";
+		driver.get(baseUrl1);
+		
 	     driver.findElement(By.cssSelector("img[src='/images/mint_ather@2x.png']")).click();
 	     Thread.sleep(10000);
 	     driver.findElement(By.xpath("//*[@class='next-btn-wrapper active']")).click();
