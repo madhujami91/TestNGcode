@@ -40,7 +40,9 @@ public class Ather_pras {
          driver.findElement(By.name("contact_no")).sendKeys("8056250743");
          driver.findElement(By.name("details[installationAddress][address_line_1]")).sendKeys("526");
          driver.findElement(By.id("whatsappConsent")).click();
-         driver.findElement(By.xpath("//*[@type()='checkbox']")).click();
+         driver.findElement(By.cssSelector("img[src='/images/inverse-logo.svg\']")).click();
+         Thread.sleep(3000);
+         System.out.println("page is :  " + driver.getCurrentUrl());
 	     //WebElement Element = driver.findElement(By.linkText("Calculate your EMI"));
 	     driver.close();
 	     driver.quit();
