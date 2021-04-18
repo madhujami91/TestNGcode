@@ -33,8 +33,8 @@ public class Ather_pras {
 	     Thread.sleep(10000);
 		System.out.print("green selected");
 		
-	     String baseUrl1 = "https://app.atherenergy.com/product/450x/preorder";
-		driver.get(baseUrl1);
+		
+	     driver.findElement(By.id("preorder-header-lg")).click();
 		
 	     driver.findElement(By.cssSelector("img[src='/images/mint_ather@2x.png']")).click();
 	     Thread.sleep(10000);

@@ -38,7 +38,11 @@ public class Facebook {
 	 password.clear();
 	 System.out.print("\nField is Clear ");
 	 driver.findElement(By.xpath("//a[@class='_42ft _4jy0 _6lti _4jy6 _4jy2 selected _51sy']")).click();
-	// driver.navigate().refresh();
+	 Thread.sleep(5000);
+	 driver.findElement(By.name("firstname")).sendKeys("Madhu");
+	 driver.findElement(By.xpath("//*[@name='lastname']")).sendKeys("Sudhan");
+	 driver.findElement(By.xpath("//*[@name='reg_email__']")).sendKeys("8056250743");
+	//driver.navigate().refresh();
 	driver.findElement(By.xpath("//*[@class='_8idr img']")).click();
 	System.out.print("\nReturned to Main page. \n");
 	// Thread.sleep(10000);
