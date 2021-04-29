@@ -3,10 +3,10 @@ package Practiceselinum.TestNG1;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -40,10 +40,13 @@ public WebDriver driver;
 		driver.manage().window().maximize();
 		  }
 
+	@SuppressWarnings("deprecation")
 	@Test
 	       public void Flogin_page() throws InterruptedException, IOException {
 		driver.findElement(By.cssSelector("li[data-img='/images/450x-new/scooter-scroll/mint.png']")).click();
-	     Thread.sleep(10000);
+		//driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+       // Thread.sleep(10000);
 		System.out.print("green selected");
 		driver.findElement(By.id("preorder-header-lg")).click();
 		 ArrayList<String> newTb = new ArrayList<String>(driver.getWindowHandles());
@@ -56,6 +59,17 @@ public WebDriver driver;
 	     Thread.sleep(5000);
 	     System.out.println("page is :  " + driver.getCurrentUrl());
 	     Thread.sleep(5000);
+	     driver.findElement(By.xpath("//*[@id='states']")).click();
+	     driver.findElement(By.xpath("//div[@class ='menu transition visible']//div[text() = 'tamil nadu']")).click();
+	    		 
+	  
+//	     WebElement state1 = driver.findElement(By.xpath("//*[@id='states']"));
+//	     WebElement city1 = driver.findElement(By.xpath("//*[@id='cities']"));
+//	     WebElement dealer1 = driver.findElement(By.id("dealers"));
+//	     state1.selec
+//	     SelectDropdown(state1,"Tamil Nadu");
+//	     SelectDropdown(city1,"chennai");
+//	     SelectDropdown(dealer1,"Ather");
 	     driver.findElement(By.id("person_mail")).sendKeys("Madhujami91@gmail.com");
         driver.findElement(By.id("person_confirm_mail")).sendKeys("Madhujami91@gmail.com");
         driver.findElement(By.name("f_name")).sendKeys("Madhu");
@@ -72,7 +86,6 @@ public WebDriver driver;
         
         //switch to parent window
         driver.switchTo().window(newTb.get(0));
-        System.out.println("Page title of parent window: " + driver.getTitle());
         System.out.println("page is :  " + driver.getCurrentUrl());
 	}
 	
@@ -89,14 +102,14 @@ public WebDriver driver;
 		driver.quit();
 	}
 
+//	public static void SelectDropdown(WebElement string1, String data)
+//	{
+//		Select select1 = new Select(string1);
+//		select1.selectByVisibleText(data);
+//		//System.out.println(select1.isMultiple());
+//		
+//	}
 
-	public static void SelectDropdown(WebElement string1, String value)
-	{
-		Select select1 = new Select(string1);
-		select1.selectByVisibleText(value);
-		System.out.println(select1.isMultiple());
-		
-	}
 	public static void screenshots(WebDriver webdriver , String location) throws IOException
 	{
 
